@@ -42,7 +42,8 @@ function createOnceHandler (event, handler, capture) {
 // #9446: Firefox <= 53 (in particular, ESR 52) has incorrect Event.timeStamp
 // implementation and does not fire microtasks in between event propagation, so
 // safe to exclude.
-const useMicrotaskFix = isUsingMicroTask && !(isFF && Number(isFF[1]) <= 53)
+// P.S When Using CEF, this causes bug with click events.
+const useMicrotaskFix = false;
 
 function add (
   name: string,
